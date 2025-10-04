@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://o11akounviy8"]
+[gd_scene load_steps=8 format=4 uid="uid://o11akounviy8"]
 
 [ext_resource type="TileSet" uid="uid://cbm6vnm2nyikv" path="res://scenes/arena/tileset.tres" id="1_e05a3"]
+[ext_resource type="Script" uid="uid://dyj3jpvn1fkls" path="res://scenes/arena/arena.gd" id="1_olpmc"]
 [ext_resource type="Texture2D" uid="uid://mbxv0ayrsu3d" path="res://assets/sprites/star_particle.png" id="2_wl4x5"]
+[ext_resource type="PackedScene" uid="uid://dl4s3cbaibaw7" path="res://scenes/unit/unit.tscn" id="4_xdvfk"]
 
 [sub_resource type="Curve" id="Curve_olpmc"]
 _data = [Vector2(0.0531915, 0), 0.0, 0.0, 0, 0, Vector2(0.223404, 1), 0.0, 0.0, 0, 0, Vector2(0.82766, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -26,6 +28,7 @@ scale_curve = SubResource("CurveTexture_xdvfk")
 color = Color(1, 1, 1, 0.631373)
 
 [node name="Arena" type="Node2D"]
+script = ExtResource("1_olpmc")
 metadata/_edit_lock_ = true
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -37,6 +40,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAYAAAABAAAAAAAAAAYAAAABAAEAAAAAAAY
 tile_set = ExtResource("1_e05a3")
 
 [node name="Props" type="TileMapLayer" parent="Visuals"]
+modulate = Color(1, 1, 1, 0.572549)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAABMAAAABAAAAAAAHABMAAAACAAEAAAALABMAAAAAAAEAAAANABMAAAAAAAMAAAAPABMAAAAAAAcAAAAKABMAAAAAAAgAAAAKABMAAAAAAAoAAAAGABMAAAACAAAAAAAEABMAAAACAAoAAAAFABMAAAADAAEAAAAPABMAAAADAAcAAAAJABMAAAADAAoAAAAGABMAAAAIAAEAAAAJABMAAAAJAAEAAAANABMAAAALAAEAAAABABMAAAANAAEAAAANABMAAAAQAAAAAAABABMAAAARAAAAAAAAABMAAAARAAQAAAALABMAAAARAAcAAAAKABMAAAARAAoAAAANABMAAAASAAAAAAAEABMAAAASAAQAAAAFABMAAAASAAkAAAAIABMAAAATAAIAAAADABMAAAATAAcAAAAFABMAAAATAAkAAAAJABMAAAATAAoAAAAGABMAAAA=")
 tile_set = ExtResource("1_e05a3")
 
@@ -60,6 +64,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Decore" type="TileMapLayer" parent="GameArea"]
+modulate = Color(1, 1, 1, 0.4)
 tile_map_data = PackedByteArray("AAAHAAIAAAABABYAAAABAAYAAAAAABUAAAAJAAAAAAABABUAAAACAAEAAAAAABYAAAA=")
 tile_set = ExtResource("1_e05a3")
 
@@ -75,3 +80,12 @@ metadata/_edit_group_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="Bench"]
 tile_set = ExtResource("1_e05a3")
+
+[node name="Unit" parent="." instance=ExtResource("4_xdvfk")]
+position = Vector2(224, 320)
+
+[node name="Unit2" parent="." instance=ExtResource("4_xdvfk")]
+position = Vector2(256, 320)
+
+[node name="Unit3" parent="." instance=ExtResource("4_xdvfk")]
+position = Vector2(288, 224)
